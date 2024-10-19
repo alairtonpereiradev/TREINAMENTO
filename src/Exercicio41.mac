@@ -1,0 +1,15 @@
+ROUTINE Exercicio41 
+Exercicio41 ;
+
+    Read "matricula: ", matricula
+    Read "nome: ", nome
+    Read "telefone: ", telefone
+    Read "dt nasc: ", dt
+    Read "Sexo: ", sexo
+
+    
+    Write "matricula: ", matricula
+    Write "nome: ", nome
+    Write "telefone: ", telefone
+    Write "dt nasc: ", dt
+    Write "Sexo: ", sexo

@@ -1,0 +1,13 @@
+ROUTINE Exercicio2 
+Exercicio2 ;
+    Read "Digite o valor de x:",x
+    Read "Digite o valor de y:",y 
+
+    Set contador = 0
+    For a = x:1:y {
+        if a#2=0 Write a_"é par",!
+        
+        if a#10 = 0 Set contador = contador + 1
+        
+        } Write !, "Há "_contador_" multiplos de 10 neste intervalo", !
+        

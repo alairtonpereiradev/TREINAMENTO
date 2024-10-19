@@ -1,0 +1,9 @@
+ROUTINE Exercicio3 
+Exercicio3 ;
+    Read "Digite o valor de x:",x
+    Read "Digite o valor de y:",y
+    
+    For a=x:1:y
+    {
+        If a#2'=0 Write a_" é impar",!
+    }

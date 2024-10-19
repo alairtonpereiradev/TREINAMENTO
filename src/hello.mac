@@ -1,0 +1,11 @@
+ROUTINE hello 
+hello ;
+    SET x = "Hello"
+    WRITE x,!
+    WRITE 1 + 2,!
+     WRITE $LENGTH(x),!
+     WRITE $ZVERSION
+    Quit
+
+    
+    

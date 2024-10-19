@@ -1,0 +1,35 @@
+ROUTINE Exercicio4 
+Exercicio4
+
+    Read "Digite o valor de num1:",num1
+    Read "Digite o valor de num2:",num2
+    Read "Digite o valor de num3:",num3
+    
+    Set result1 = 0
+    Set result2 = 0
+    Set result3 = 0
+    
+    For x=num1:1:num2
+    {
+        If x#11=5
+        {
+            Set result1 = result1 + 1
+            Write x_" é divisível por 11 com resto = 5",!
+        }
+        
+        Set result3 = result3 + x
+        
+    }
+    
+    For x=num2:1:num3
+    {
+        If x#3=0
+        {
+            Set result2 = result2 + 1
+            Write x_" é divisível por 3",!
+        }
+    }
+    
+    Write "Total de números divisíveis por 11 com resto 5 entre num1 e num2: "_result1,!
+    Write "Total de números divisíveis por 3 entre num2 e num3: "_result2,!
+    Write "Somatória dos números entre num1 e num2: "_result3,!

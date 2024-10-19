@@ -1,0 +1,22 @@
+ROUTINE Exercicio5 
+Exercicio5 ;
+    Set ind1="matricula",ind2="nome",ind3="telefone",ind4="data nascimento",ind5="sexo"
+    for If=1:1
+    {
+    Read "Digite a matrícula do aluno: ",matricula
+    IF matricula="" Quit
+    Read "Digite o nome completo do aluno: ",nome
+    Read "Digite o telefone do aluno: ",telefone
+    Read "Digite a data de nascimento do aluno: ",dataNascimento
+    Read "Digite o sexo do aluno: ",sexo
+    Write "Matrícula do aluno: ",matricula,!
+    Write "Nome completo do aluno: ",nome,!
+    Write "Telefone do aluno: ",telefone,!
+    Write "Data de nascimento do aluno: ",dataNascimento,!
+    Write "Sexo do aluno: ",sexo,!
+    Set ^ALUNO(I,ind1)=matricula
+    Set ^ALUNO(I,ind2)=nome
+    Set ^ALUNO(I,ind3)=telefone
+    Set ^ALUNO(I,ind4)=dataNascimento
+    Set ^ALUNO(I,ind5)=sexo
+}

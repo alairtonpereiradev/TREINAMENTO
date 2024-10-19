@@ -1,0 +1,9 @@
+ROUTINE Exercicio6 
+Exercicio6 ;
+    W "Data no formato DD/MM/YYYY: "_$ZD($h,4),!
+    W "Data no formato Horolog: "_$piece($h,",",1),!
+    W "Data no formato islâmico tabular: "_$zd($h,18),!
+    W "Mes islâmico: "_$piece($zd($h,18)," ",2),!
+    W "Quantidade de Caracteres de CARLOS EDUARDO DE ARAUJO (sem os espaços): "_$L($tr("CARLOS EDUARDO DE ARAUJO"," ","")),!
+    w "Trocar espaços por pipe: "_$tr("CARLOS EDUARDO DE ARAUJO"," ","|"),!
+ 
