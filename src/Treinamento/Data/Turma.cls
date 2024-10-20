@@ -11,27 +11,46 @@ Property Alunos As list Of Treinamento.Data.Aluno [ SqlColumnNumber = 5 ];
 
 Property Curso As Treinamento.Data.Curso [ SqlColumnNumber = 6 ];
 
-ClassMethod VerificaStatus(Curso As %String) As %String [ Language = objectscript ]
+ClassMethod VerificaStatus(curso As %String) As %String [ Language = objectscript ]
 {
     Set statusTurma = ""
-    Set sql= "SELECT * FROM Treinamento.Data.Turma WHERE Curso->Nome ='"_Curso_"'"
-    Set resultSet = ##class(%ResultSet).%New()
-    set status = resultSet.Prepare(sql)
-    set status = resultSet.Execute()
-
-    If resultSet.Next() {
-        Set statusTurma = resultSet.Get("Status")
-
+    Set sql = "SELECT * FROM Treinamento.DData.Turma WHERE Curso->Nome ='"_curso_"'"
+    Set resultSet = ##class(%SQL.Statement).%New()
+    Set status = resultSet.%Prepare(sql)
+    Set status = resultSet.%Execute()
+    If resultSet.%Next() {
+       Set statusTurma = resultSet.%Get("Status")
+      
     }
+    
     Return statusTurma
 }
 
-ClassMethod ImprimeTurma(Curso As %String) As %String [ Language = objectscript ] {
-    Set sql = "SELECT * FROM Treinamento.Data.Turma WHERE Curso->Nome = '"_Curso_"'"
-    Set resultSet = ##class(%ResultSet).%New()
-    set status = resultSet.Prepare(sql)
-    set status = resultSet.Execute()
+ClassMethod ImprimeTurma(curso As %String) As %String [ Language = objectscript ]
+{
+
+    Set tSC = $$$OK
+    Try {
+    Set sql = "SELECT * FROM Treinamento.DData.Turma WHERE Curso->Nome ='"_curso_"'"
+    Set resultSet = ##class(%SQL.Statement).%New()
+    Set status = resultSet.%Prepare(sql)
+    Set sr = resultSet.%Execute()
+
+     If sr.%Next() {
+        Set idTurma = sr.Get("ID")
+        Set turma = ##class(Treinamento.Data.Turma).%OpenId(idTurma)
+    }
+    For x = 1:1:turma.Alunos.Count() {
+        Set aluno = turma.Alunos.GetAt(x)
+        w " Nome "_aluno.Nome, " Matricula "_aluno.Matricula, " Idade: "_aluno.Idade,!
+    }
     
+    } Catch (excepetion) {
+        Set tSc = excepetion.AsStatus()
+        Set tSC = $SYSTEM.Status.GetErrorText(tSC)
+
+    }
+    Return
 }
 
 Storage Default

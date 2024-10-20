@@ -5,12 +5,26 @@ TreinamentoExercicioObjects ;
     Kill ^Treinamento.Data.AlunoD
     Kill ^Treinamento.Data.TurmaD
 
-    Set curso = ##class(Treinamento.Data.Curso).%New()
-    Set curso.Nome = "OBJ IRIS SQL"
-    Set curso.Preco = 1200
-    Set curso.Duracao = 18
-    Set Status = curso.%Save()
-    Write "Curso Salvo com sucesso!",!
+    Set curso1 = ##class(Treinamento.Data.Curso).%New()
+    Set curso1.Nome = "OBJ IRIS SQL"
+    Set curso1.Preco = 1200
+    Set curso1.Duracao = 18
+    Set Status = curso1.%Save()
+    Write "Curso1 Salvo com sucesso!",!
+
+    Set curso2 = ##class(Treinamento.Data.Curso).%New()
+    Set curso2.Nome = "OBJ IRIS Debug"
+    Set curso2.Preco = 1200
+    Set curso2.Duracao = 18
+    Set Status = curso2.%Save()
+    Write "Curso2 Salvo com sucesso!",!
+
+    Set curso3 = ##class(Treinamento.Data.Curso).%New()
+    Set curso3.Nome = "IRIS Integration"
+    Set curso3.Preco = 1200
+    Set curso3.Duracao = 18
+    Set Status = curso3.%Save()
+    Write "Curso2 Salvo com sucesso!",!
 
 
     Set instrutor = ##class(Treinamento.Data.Instrutor).%New()
@@ -24,13 +38,14 @@ TreinamentoExercicioObjects ;
     Set aluno1.Nome = "Denise Pereira"
     Set aluno1.Matricula = 080281
     Set aluno1.Idade = 39
-
     Set status = aluno1.%Save()
+    Write "Aluno1 Salvo com sucesso!",!
 
     Set aluno2 = ##class(Treinamento.Data.Aluno).%New()
     Set aluno2.Nome = "Pedro Abner"
     Set aluno2.Matricula = 0204
     Set aluno2.Idade = 2
+    Write "Aluno2 Salvo com sucesso!",!
 
     Set status = aluno2.%Save()
 
@@ -38,14 +53,25 @@ TreinamentoExercicioObjects ;
     Set aluno3.Nome = "Asafe"
     Set aluno3.Matricula = 1910
     Set aluno3.Idade = 0
-    Set status = aluno3.%Save()
+    Set status = aluno3.%Save()    
+    Write "Aluno3 Salvo com sucesso!",!
 
     Write "Alunos Salvo com sucesso!",!
 
 
     Set turma = ##class(Treinamento.Data.Turma).%New()
     Set turma.Status = "Incompleto"
-    Set turma.Curso = curso
+    Set turma.Curso = curso1
+    Set status = turma.%Save()
+
+    Set turma = ##class(Treinamento.Data.Turma).%New()
+    Set turma.Status = "Incompleto"
+    Set turma.Curso = curso2
+    Set status = turma.%Save()
+
+    Set turma = ##class(Treinamento.Data.Turma).%New()
+    Set turma.Status = "Incompleto"
+    Set turma.Curso = curso3
     Set status = turma.%Save()
 
     Do turma.Alunos.Insert(aluno1)
@@ -54,5 +80,7 @@ TreinamentoExercicioObjects ;
     Set turma.Instrutor = instrutor
     Set status = turma.%Save()
     
-    Set statusTurma = turma.VerificaStatus("OBJ IRIS Debug")
+    //Set statusTurma = turma.VerificaStatus("OBJ IRIS SQL")
+    //Do ##class(Treinamento.Data.Turma).VerificaStatus("OBJ IRIS Debug")
     w statusTurma
+    Do ##class(Treinamento.Data.Turma).ImprimeTurma("OBJ IRIS Debug")
